@@ -1,0 +1,33 @@
+import java.io.FileInputStream;
+import java.security.MessageDigest;
+
+public class GitHashObject {
+
+    public static void main(String[] args) {
+        try {
+            String filePath = "demo.txt";
+
+            // Read file
+            FileInputStream fis = new FileInputStream(filePath);
+
+            // Get SHA-1 digest
+            MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                sha1.update(buffer, 0, bytesRead);
+            }
+
+            // Convert hash bytes to hex string
+            byte[] hashBytes = sha1.digest();
+            StringBuilder sb = new StringBuilder();
+
+            for (byte b : hashBytes) {
+                sb.append(String.format("%02x", b));
+            }
+
+            System.out.println("SHA-1 Hash: " + sb.toString());
+
+            fis.cl
