@@ -16,7 +16,7 @@ public class GitHashObject {
             byte[] buffer = new byte[1024];
             int bytesRead;
 
-            while ((bytesRead = fis.read(buffer)) != -1) {122
+            while ((bytesRead = fis.read(buffer)) != -1) {122 
                 sha1.update(buffer, 0, bytesRead);
             }
 
@@ -31,3 +31,4 @@ public class GitHashObject {
             System.out.println("SHA-1 Hash: " + sb.toString());
 
             fis.cl
+this ius my network 
